@@ -1,4 +1,5 @@
 import Login from "../pages/Login";
+import QuestionsPage from "../pages/QuestionsPage";
 import GlobalStyles from "../assets/global_styles/Global.style";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Reset from "../assets/global_styles/Reset";
@@ -14,6 +15,7 @@ export default function App() {
             <AuthProvider>
                 <Routes>
                     <Route path="/" element={<Login />} />
+                    <Route path="/question/:id" element={<QuestionsPage />} />
                 </Routes>
             </AuthProvider>
         </BrowserRouter>
