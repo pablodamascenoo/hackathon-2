@@ -2,7 +2,9 @@ import { Container } from "../assets/global_styles/Conponents.style";
 import styled from "styled-components";
 import { Button, TextField } from "@mui/material";
 import api from "../services/api";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 const ContainerLogin = styled(Container)`
     margin-inline: auto;
@@ -56,10 +58,16 @@ const ContainerLogin = styled(Container)`
 
 const Login = () => {
     const [signIn, setSignIn] = useState({ email: "", password: "" });
+    const { setUser, setToken, token } = useContext(AuthContext);
+    const navigate = useNavigate();
+    console.log("teste");
+
     const login = () => {
         const promise = api.post("sign-in", signIn);
         promise.then((response) => {
-            console.log(response);
+            setToken(response.data.token);
+            setUser({ user: response.data.name });
+            navigate("/HomePage/");
         });
         promise.catch((err) => {
             console.log(err);

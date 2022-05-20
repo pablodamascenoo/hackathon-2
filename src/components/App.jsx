@@ -2,15 +2,18 @@ import Login from "../pages/Login";
 import GlobalStyles from "../assets/global_styles/Global.style";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Reset from "../assets/global_styles/Reset";
+import { AuthProvider } from "../context/authContext";
 
 export default function App() {
     return (
         <BrowserRouter>
             <Reset />
             <GlobalStyles />
-            <Routes>
-                <Route path="/" element={<Login />} />
-            </Routes>
+            <AuthProvider>
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                </Routes>
+            </AuthProvider>
         </BrowserRouter>
     );
 }
