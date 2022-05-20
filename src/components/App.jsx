@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FirstPage from "../pages/FistPage"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Reset from "../assets/global_styles/Reset";
@@ -8,7 +9,7 @@ export default function App() {
     <BrowserRouter>
       <Reset />
       <Routes>
-        <Route path="/" element={<h1>hello world!</h1>} />
+        <Route path="/" element={<FirstPage />} />
       </Routes>
     </BrowserRouter>
   );
