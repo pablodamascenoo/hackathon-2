@@ -10,7 +10,6 @@ export default function App() {
     return (
         <BrowserRouter>
             <Reset />
-
             <GlobalStyles />
             <AuthProvider>
                 <Routes>
