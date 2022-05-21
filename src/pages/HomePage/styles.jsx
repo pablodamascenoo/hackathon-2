@@ -8,3 +8,7 @@ export const Container = styled.main`
     flex-direction: column;
     background-color: #fefefe;
 `
+
+export const Section = styled.div`
+    
+`
