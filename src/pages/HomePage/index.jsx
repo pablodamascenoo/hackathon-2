@@ -17,18 +17,21 @@ export default function HomePage(){
 
     useEffect(() => {
         //CONSERTAR O GET!!!!!!
-        const request = axios.get("https://escola-online.herokuapp.com/subjects", config);
+        const request = axios.get("https://escola-online.herokuapp.com/subjects/", config);
         request.then(resp => {
-            console.log(`data: ${resp.data}`);
+            console.log(resp);
             setClasses([...resp.data]);
         })
-    })
+        request.catch(e => {
+            console.log(e);
+        })
+    }, []);
 
     return(
         <>
             <TopBar />
             <Container>
-                {classes.map(singleClass => {
+                {classes?.map(singleClass => {
                     return(
                         <Section>
                             <img src={singleClass.image}/>
