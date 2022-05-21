@@ -4,7 +4,7 @@ import { Button, TextField } from "@mui/material";
 import api from "../services/api";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ContainerLogin = styled(Container)`
     margin-inline: auto;
@@ -54,6 +54,13 @@ const ContainerLogin = styled(Container)`
     .input {
         width: 100%;
     }
+
+    a {
+        margin-top: 15px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 `;
 
 const Login = () => {
@@ -67,6 +74,7 @@ const Login = () => {
         promise.then((response) => {
             setToken(response.data.token);
             setUser({ user: response.data.name });
+            localStorage.setItem("token", response.data.token);
             navigate("/HomePage/");
         });
         promise.catch((err) => {
@@ -120,9 +128,10 @@ const Login = () => {
                     size="large"
                     type="submit"
                 >
-                    Login
+                    Entrar
                 </Button>
             </form>
+            <Link to="/signup/">Não tem conta? faça login</Link>
         </ContainerLogin>
     );
 };
