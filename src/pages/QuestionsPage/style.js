@@ -5,4 +5,6 @@ export const QuestionsContainer = styled(Container)`
     flex-direction: column;
     overflow-y: scroll;
     padding-top: 150px;
+    height: 100vh;
+    background-color: #fefefe;
 `;
