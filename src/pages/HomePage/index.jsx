@@ -1,18 +1,26 @@
-import { useState, useEffect } from "react"
+import { useContext, useState, useEffect } from "react"
+import { AuthContext } from "../../context/authContext";
 import axios from "axios";
 
 import TopBar from "../TopBar"
-import { Container } from "./styles";
+import { Container, Section } from "./styles";
 
 export default function HomePage(){
     const [classes, setClasses] = useState(null);
+    const { token } = useContext(AuthContext);
+    //const token = "892a406b-858c-450c-9b30-1595812253d7";
+    const config = { 
+        headers: { 
+            Authorization: `Bearer ${token}`
+        }
+    };
 
     useEffect(() => {
         //CONSERTAR O GET!!!!!!
-        const request = axios.get("");
+        const request = axios.get("https://escola-online.herokuapp.com/subjects", config);
         request.then(resp => {
-            console.log(resp.data);
-            setClasses(resp.data);
+            console.log(`data: ${resp.data}`);
+            setClasses([...resp.data]);
         })
     })
 
