@@ -58,7 +58,6 @@ const SignUp = () => {
     const handleChange = (event) => {
         const target = event.target;
         signUpData[target.name] = target.value;
-        console.log(signUpData);
         setSignUpData(signUpData);
     };
 
@@ -83,7 +82,6 @@ const SignUp = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("cabeça dagua");
         signUp();
     };
 

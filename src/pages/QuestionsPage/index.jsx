@@ -17,8 +17,6 @@ export default function QuestionsPage() {
         },
     };
 
-    console.log(count);
-
     function answerQuestion(value, question) {
         let { total, rights, answereds } = count;
 
@@ -31,8 +29,6 @@ export default function QuestionsPage() {
 
         SetCount({ ...count, total, rights, answereds });
     }
-
-    console.log(questions);
 
     useEffect(() => {
         const promisse = axios.get(

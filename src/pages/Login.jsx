@@ -86,13 +86,11 @@ const Login = () => {
     const handleChange = (event) => {
         const target = event.target;
         signIn[target.name] = target.value;
-        console.log(signIn);
         setSignIn(signIn);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("cabeça dagua");
         login();
     };
 

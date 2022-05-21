@@ -9,20 +9,20 @@ import { Container, Section } from "./styles";
 export default function HomePage() {
     const [classes, setClasses] = useState(null);
     const { token } = useContext(AuthContext);
-  
-   const config = {
+
+    const config = {
         headers: {
             Authorization: `Bearer ${token}`,
-        };
+        },
+    };
 
-   
+
     useEffect(() => {
-          const request = axios.get(
+        const request = axios.get(
             "https://escola-online.herokuapp.com/subjects/",
             config
         );
         request.then((resp) => {
-            console.log(resp);
             setClasses([...resp.data]);
         });
         request.catch((e) => {
@@ -35,10 +35,10 @@ export default function HomePage() {
             <TopBar />
             <Container>
                 {classes?.map(singleClass => {
-                    return(
+                    return (
                         <Link to={`/question/${singleClass._id}`}>
                             <Section>
-                                <img src={singleClass.image}/>
+                                <img src={singleClass.image} />
                                 <article>
                                     <h1>{singleClass.subject}</h1>
                                     <h2>{singleClass.description}</h2>
