@@ -10,6 +10,7 @@ const SignUpContainer = styled(Container)`
     width: 100%;
     flex-direction: column;
     gap: 15px;
+    font-family: "Poppins", sans-serif;
 
     form {
         width: 80%;
