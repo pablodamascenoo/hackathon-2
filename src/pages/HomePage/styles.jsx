@@ -6,9 +6,13 @@ export const Container = styled.main`
     margin-top: 70px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #fefefe;
 `
 
 export const Section = styled.div`
-    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `
