@@ -1,15 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "../../assets/global_styles/Conponents.style";
 import { AuthContext } from "../../context/authContext";
+import { QuestionsContainer } from "./style";
 import axios from "axios";
+import QuestionBox from "../../components/QuestionBox";
 
 export default function QuestionsPage() {
     const { token, user } = useContext(AuthContext);
     const { id } = useParams();
     const [questions, SetQuestions] = useState([]);
-
-    // const token = "1e80542b-3cb8-428b-9c3a-5911712ac98a";
 
     const config = {
         headers: {
@@ -32,12 +31,17 @@ export default function QuestionsPage() {
     }, []);
 
     return (
-        <Container>
-            <h1>
-                {questions.map((question) => {
-                    return question.enunciate;
-                })}
-            </h1>
-        </Container>
+        <QuestionsContainer>
+            {questions.map((question, index) => {
+                return (
+                    <QuestionBox
+                        key={index}
+                        title={`Questão ${index + 1}`}
+                        enunciate={question.enunciate}
+                        options={question.options}
+                    />
+                );
+            })}
+        </QuestionsContainer>
     );
 }
