@@ -10,6 +10,7 @@ const ContainerLogin = styled(Container)`
     margin-inline: auto;
     width: 100%;
     flex-direction: column;
+    font-family: "Poppins", sans-serif;
     gap: 15px;
 
     h1 {
