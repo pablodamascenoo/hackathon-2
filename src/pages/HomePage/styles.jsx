@@ -8,6 +8,20 @@ export const Container = styled.main`
     flex-direction: column;
     align-items: center;
     background-color: #fefefe;
+    padding-left: 50px;
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    h1{
+        margin-bottom: 10px;
+    }
+    article{
+        margin-bottom: 25px;
+    }
+
 `
 
 export const Section = styled.div`

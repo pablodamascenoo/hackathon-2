@@ -68,13 +68,13 @@ const Login = () => {
     const [signIn, setSignIn] = useState({ email: "", password: "" });
     const { setUser, setToken, token } = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log("teste");
 
     const login = () => {
         const promise = api.post("sign-in", signIn);
         promise.then((response) => {
             setToken(response.data.token);
             setUser({ user: response.data.name });
+            localStorage.setItem("name", response.data.name);
             localStorage.setItem("token", response.data.token);
             navigate("/HomePage/");
         });

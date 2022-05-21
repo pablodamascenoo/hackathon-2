@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-
 import { Header } from "./styles"
 
 export default function TopBar(){
-    const [userName, setUserName] = useState("");
-
+    //const [userName, setUserName] = useState();
+    const nome = localStorage.getItem("name");
     //CONSERTAR O GET COM O LINK
     /*useEffect(() => {
         const request = axios.get("");
@@ -18,7 +17,7 @@ export default function TopBar(){
     return(
         <Header>
             <h1>Escola online</h1>
-            <p>userName</p>
+            <p>{nome.toUpperCase ()}</p>
         </Header>
     )
 }

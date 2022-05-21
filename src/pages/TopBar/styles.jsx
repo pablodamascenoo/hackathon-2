@@ -13,14 +13,14 @@ export const Header = styled.header`
     p{
         font-family: 'Poppins', sans-serif;
         font-size: 30px;
-        margin-right: 18px;
+        margin-right: 25px;
         color: white;
     }
 
     h1{
         font-family: 'Poppins', sans-serif;
         font-size: 30px;
-        margin-left: 18px;
+        margin-left: 25px;
         color: white;
     }
 `
